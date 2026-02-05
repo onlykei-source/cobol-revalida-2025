@@ -13,8 +13,7 @@ USRMAP   DFHMSD TYPE=&SYSPARM,                                         X
 ***********************************************************************
 * COUSR03  : MAIN DELETE USER SCREEN
 ***********************************************************************
-COUSR03  DFHMDI SIZE=(24,80),LINE=1,COLUMN=1,                          X
-               CTRL=(FREEKB,FRSET)
+COUSR03  DFHMDI SIZE=(24,80),LINE=1,COLUMN=1
 *
 * --- HEADERS ---
          DFHMDF POS=(01,02),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
@@ -23,7 +22,7 @@ COUSR03  DFHMDI SIZE=(24,80),LINE=1,COLUMN=1,                          X
                INITIAL=':'
 TRNID03  DFHMDF POS=(01,10),LENGTH=04,COLOR=GREEN,ATTRB=(PROT,NORM),   X
                INITIAL='CU03'
-         DFHMDF POS=(01,27),LENGTH=33,COLOR=WHITE,ATTRB=(ASKIP,BRT),   X
+         DFHMDF POS=(01,27),LENGTH=33,COLOR=NEUTRAL,ATTRB=(ASKIP,BRT), X
                INITIAL='AWS Mainframe Modernization'
          DFHMDF POS=(01,65),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
                INITIAL='Date'
@@ -37,7 +36,7 @@ DATE03   DFHMDF POS=(01,72),LENGTH=08,COLOR=GREEN,ATTRB=(PROT,NORM)
                INITIAL=':'
 PRG03    DFHMDF POS=(02,10),LENGTH=08,COLOR=GREEN,ATTRB=(PROT,NORM),   X
                INITIAL='COUSR03C'
-         DFHMDF POS=(02,37),LENGTH=09,COLOR=WHITE,ATTRB=(ASKIP,BRT),   X
+         DFHMDF POS=(02,37),LENGTH=09,COLOR=NEUTRAL,ATTRB=(ASKIP,BRT), X
                INITIAL='Card Demo'
          DFHMDF POS=(02,65),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
                INITIAL='Time'
