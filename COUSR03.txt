@@ -1,0 +1,94 @@
+         PRINT NOGEN
+USRMAP   DFHMSD TYPE=&SYSPARM,                                         X
+               MODE=INOUT,                                             X
+               LANG=COBOL,                                             X
+               STORAGE=AUTO,                                           X
+               CTRL=(FREEKB,FRSET),                                    X
+               TERM=3270,                                              X
+               TIOAPFX=YES,                                            X
+               EXTATT=YES,                                             X
+               DSATTS=(COLOR,HILIGHT),                                 X
+               MAPATTS=(COLOR,HILIGHT)
+*
+***********************************************************************
+* COUSR03  : MAIN DELETE USER SCREEN
+***********************************************************************
+COUSR03  DFHMDI SIZE=(24,80),LINE=1,COLUMN=1,                          X
+               CTRL=(FREEKB,FRSET)
+*
+* --- HEADERS ---
+         DFHMDF POS=(01,02),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Tran'
+         DFHMDF POS=(01,07),LENGTH=01,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL=':'
+TRNID03  DFHMDF POS=(01,10),LENGTH=04,COLOR=GREEN,ATTRB=(PROT,NORM),   X
+               INITIAL='CU03'
+         DFHMDF POS=(01,27),LENGTH=33,COLOR=WHITE,ATTRB=(ASKIP,BRT),   X
+               INITIAL='AWS Mainframe Modernization'
+         DFHMDF POS=(01,65),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Date'
+         DFHMDF POS=(01,70),LENGTH=01,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL=':'
+DATE03   DFHMDF POS=(01,72),LENGTH=08,COLOR=GREEN,ATTRB=(PROT,NORM)
+*
+         DFHMDF POS=(02,02),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Prog'
+         DFHMDF POS=(02,08),LENGTH=01,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL=':'
+PRG03    DFHMDF POS=(02,10),LENGTH=08,COLOR=GREEN,ATTRB=(PROT,NORM),   X
+               INITIAL='COUSR03C'
+         DFHMDF POS=(02,37),LENGTH=09,COLOR=WHITE,ATTRB=(ASKIP,BRT),   X
+               INITIAL='Card Demo'
+         DFHMDF POS=(02,65),LENGTH=04,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Time'
+         DFHMDF POS=(02,70),LENGTH=01,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL=':'
+TIME03    DFHMDF POS=(02,72),LENGTH=08,COLOR=GREEN,ATTRB=(PROT,NORM)
+*
+         DFHMDF POS=(05,34),LENGTH=11,COLOR=YELLOW,ATTRB=(ASKIP,BRT),  X
+               INITIAL='Delete User'
+*
+* --- INPUT AREA (Row 10) ---
+         DFHMDF POS=(07,09),LENGTH=08,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='User Id:'
+USRID03  DFHMDF POS=(07,19),LENGTH=18,COLOR=GREEN,HILIGHT=UNDERLINE,   X
+               ATTRB=(UNPROT,NORM,IC)
+         DFHMDF POS=(07,38),LENGTH=01,ATTRB=(PROT,DRK)
+         DFHMDF POS=(07,40),LENGTH=10,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='(Required)'
+* ---  SEPARATOR LINE ---
+FILR03   DFHMDF POS=(08,09),LENGTH=69,COLOR=BLUE,ATTRB=ASKIP,          X
+               INITIAL='***********************************************X
+               *********************'
+* --- DATA FIELDS (Rows 12, 14, 16) ---
+         DFHMDF POS=(12,09),LENGTH=11,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='First Name:'
+FNAME03  DFHMDF POS=(12,21),LENGTH=18,COLOR=GREEN,HILIGHT=UNDERLINE,   X
+               ATTRB=(UNPROT,NORM)
+               DFHMDF POS=(12,40),LENGTH=01,ATTRB=(PROT,DRK)
+*
+         DFHMDF POS=(14,09),LENGTH=10,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Last Name:'
+LNAME03  DFHMDF POS=(14,21),LENGTH=18,COLOR=GREEN,HILIGHT=UNDERLINE,   X
+               ATTRB=(UNPROT,NORM)
+               DFHMDF POS=(14,40),LENGTH=01,ATTRB=(PROT,DRK)
+*
+         DFHMDF POS=(16,09),LENGTH=10,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='User Type:'
+UTYPE03  DFHMDF POS=(16,21),LENGTH=01,COLOR=GREEN,HILIGHT=UNDERLINE,   X
+               ATTRB=(UNPROT,NORM)
+         DFHMDF POS=(16,23),LENGTH=22,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='(A=Admin, U=User)     '
+*
+* --- MESSAGE AREA (Row 22) ---
+         DFHMDF POS=(22,03),LENGTH=08,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='Message:'
+MSG03    DFHMDF POS=(22,19),LENGTH=60,COLOR=RED,ATTRB=(PROT,NORM)
+*
+* --- FOOTER (Row 23) ---
+         DFHMDF POS=(23,03),LENGTH=42,COLOR=BLUE,ATTRB=(PROT,NORM),    X
+               INITIAL='ENTER=Fetch  F3=Back  F4=Clear  F5=Delete'
+*
+         DFHMSD TYPE=FINAL
+         END
+
